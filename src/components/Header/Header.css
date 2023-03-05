@@ -1,0 +1,50 @@
+.app__button,
+.app__button:hover,
+.app__button:focus,
+.app__button:active,
+.app__button:not(:disabled):not(.disabled):active {
+  color: var(--button-text-color) !important;
+  background-color: var(--button-background-color) !important;
+  border-color: var(--button-border-color) !important;
+  transition: color 500ms linear, background-color 500ms linear,
+    border-color 500ms linear;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.strategies {
+  width: 100%;
+  display: flex;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.strategies div {
+  display: flex;
+}
+
+.currency {
+  display: flex;
+  padding-bottom: 10px;
+  margin-top: 10px;  
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  width: 110px;
+}
+
+.comment {
+  color: var(--text-color);
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
