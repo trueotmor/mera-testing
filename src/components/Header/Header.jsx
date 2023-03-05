@@ -7,16 +7,17 @@ import { strategies, currency } from '../../constants/constants';
 import {getStrategies} from '../api/api'
 import {adaptData} from '../../utils/adapt'
 
-const Header = ({getStrategy}) => {
+const Header = ({getStrategy, fullData}) => {
     const {theme, setTheme} = useTheme();
 
     const [checked, setChecked] = useState(false);
     const [strategiesValue, setStrategiesValue] = useState(strategies[0].name);
     const [currencyValue, setCurrencyValue] = useState(currency[0].name);
+
     const [stData, setStData] = useState({});
     const [currentStData, setCurrentStData] = useState([]);
 
-    
+    console.log(stData)
 
     const toggleTheme = (e) => {
         setChecked(e.currentTarget.checked);
@@ -39,9 +40,9 @@ const Header = ({getStrategy}) => {
         getStrategy(currentStData);
     }
 
-    useEffect(() => {
-        getStrategies(1).then(data => setStData(adaptData(data)));
-    }, [])
+    useEffect(()=>{
+        setStData(fullData)
+    }, [fullData])
 
     useEffect(() => {
         theme === 'light' ? setChecked(true) : setChecked(false);

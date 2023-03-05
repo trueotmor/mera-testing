@@ -74,7 +74,6 @@ class MyChart extends Component {
       render() {
         return (
     <div id="chart">
-      {/* <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} /> */}
       <ReactApexChart options={this.state.options} series={[{
             name: '',
             data: this.props.strategy,
