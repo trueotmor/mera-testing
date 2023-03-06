@@ -68,8 +68,6 @@ class MyChart extends Component {
             },
           },
         };
-
-        console.log(props)
       }
       render() {
         return (

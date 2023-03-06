@@ -18,20 +18,16 @@ const Header = ({getStrategy, fullData}) => {
     const [currentStData, setCurrentStData] = useState([]);
 
     const handleStrategyChange = (e) => {
-        getStrategies(e.currentTarget.value).then(data => setStData(adaptData(data)));
+        
+        getStrategies(e.currentTarget.value).then(
+            data => {
+                setStData(adaptData(data));
+            });
         setStrategiesValue(e.currentTarget.value);
-
-        if (currencyValue === currency[0].name) {
-            setCurrentStData([...stData.data_usd])
-        } else {
-            setCurrentStData([...stData.data_btc])
-        }
-        getStrategy(currentStData);
     }
 
     const handleCurrencyChange = (e) => {
         setCurrencyValue(e.currentTarget.value);
-        getStrategy(currentStData);
     }
 
     const toggleTheme = (e) => {
@@ -42,6 +38,16 @@ const Header = ({getStrategy, fullData}) => {
     useEffect(()=>{
         setStData(fullData)
     }, [fullData])
+
+    useEffect(()=>{
+        if (currencyValue === currency[0].name) {
+            setCurrentStData(stData.data_usd)
+        } else {
+            setCurrentStData(stData.data_btc)
+        }
+
+        getStrategy(currentStData);
+    }, [getStrategy, currentStData, stData, currencyValue])
 
     useEffect(() => {
         theme === 'light' ? setChecked(true) : setChecked(false);

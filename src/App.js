@@ -18,7 +18,7 @@ function App() {
       setStData(adaptData(data).data_usd)
       setFullStData(adaptData(data))
     });
-}, [])
+  }, [])
   
   return (
     <div className="app">
